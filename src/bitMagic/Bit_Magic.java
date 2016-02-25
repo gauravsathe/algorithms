@@ -1,5 +1,7 @@
 package bitMagic;
 
+import java.security.InvalidParameterException;
+
 public class Bit_Magic {
 
 	public static void main(String[] args) {
@@ -73,5 +75,33 @@ public class Bit_Magic {
 		}
 		
 		return rev;
+	}
+	
+	public static int charToInt(Character c) {
+		if(c >= '0' && c <= '9') return c - '0';
+		else if(c >= 'A' && c <= 'F') return c - 'A' + 10;
+		else if(c >= 'a' && c <= 'f') return c - 'a' + 10;
+		else {
+			return -1;
+		}
+	}
+	
+	public static int convertToBase(String num, int base) {
+		if((base < 2) || (base > 10 && base != 16)) return -1;
+		
+		int len = num.length();
+		int result = 0;
+		
+		for(int i=len-1; i>=0; i--) {
+			int digit = Bit_Magic.charToInt(new Character(num.charAt(i)));
+			
+			if(digit == -1 || digit >= base) return -1;
+			
+			int exp = len-1 - i;
+			
+			result += digit * (int)Math.pow(base, exp);
+		}
+		return result;
+		
 	}
 }
