@@ -1,4 +1,4 @@
-package Sorting;
+	package Sorting;
 
 public class Search {
 
@@ -195,7 +195,6 @@ public class Search {
             if(nums[mid] == target) {
                 return true;
             }
-            System.out.println(start + " " + end + " " + mid);
             
             if(nums[mid] >= nums[start]) {
                 if(target < nums[start]) {
@@ -223,7 +222,7 @@ public class Search {
                     }
                 }
             }
-            //System.out.println(start + " " + end + " " + mid);
+            
         }
         
         
